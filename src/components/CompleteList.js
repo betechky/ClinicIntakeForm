@@ -58,9 +58,9 @@ function CompleteList() {
 
   return (
     <React.Fragment>
-      <div>
+      <section>
         <button onClick={fetchPersonHandler}>List of Patients</button>
-      </div>
+      </section>
       <div className="container">
         <div className="row">
           <div className="div-section">

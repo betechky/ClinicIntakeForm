@@ -5,7 +5,8 @@ const NavBar = (props) => {
     <nav className="navbar navbar-light bg-light">
       <div className="container-fluid">
         <a className="navbar-brand" href="#">
-          Cart: {props.totalItemsNumber}
+          <strong>Hazel Jane Dino Doctor Intake Form</strong>
+          {/* {props.totalItemsNumber} */}
         </a>
       </div>
     </nav>

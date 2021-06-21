@@ -14,11 +14,12 @@ class App extends Component {
     currentDoctorId: 0,
     currentAilment: "",
     patients: {},
+    intakeform: {},
   };
 
   componentDidMount() {
-    axios.get("https://localhost:5001/Doctors").then((responce) => {
-      this.setState({ doctors: responce.data });
+    axios.get("https://localhost:5001/Doctors").then((response) => {
+      this.setState({ doctors: response.data });
       this.setState({ currentDoctorId: this.state.doctors[0].id });
     });
   }
@@ -52,13 +53,43 @@ class App extends Component {
         console.log("POST:", response);
       });
   };
+  // AddIntakeform = () => {
+  //   let one =
+  //     "https://api.storyblok.com/v1/cdn/stories/health?version=published&token=wANpEQEsMYGOwLxwXQ76Ggtt";
+  //   let two =
+  //     "https://api.storyblok.com/v1/cdn/datasources/?token=wANpEQEsMYGOwLxwXQ76Ggtt";
+  //   let three =
+  //     "https://api.storyblok.com/v1/cdn/stories/vue?version=published&token=wANpEQEsMYGOwLxwXQ76Ggtt";
 
+  //   const requestOne = axios.get(one);
+  //   const requestTwo = axios.get(two);
+  //   const requestThree = axios.get(three);
+
+  //   axios
+  //     .all([requestOne, requestTwo, requestThree])
+  //     .then(
+  //       axios.spread((...responses) => {
+  //         const responseOne = responses[0];
+  //         const responseTwo = responses[1];
+  //         const responesThree = responses[2];
+  //         // use/access the results
+  //       })
+  //     )
+  //     .catch((errors) => {
+  //       // react on errors.
+  //     });
+  // };
+  // async componentDidMount(){
+  //   const[handleCurrentDoctor, handleCurrentPatient ] await Promise.all([
+  //     axios.get('https://localhost:5001/Doctors'.this.props.handleCurrentDoctor)
+  //   ])
+  // }
   render() {
     return (
       <React.Fragment>
         <NavBar>Doctor's office</NavBar>
         <main className="container">
-          <p>
+          <p className="nodisplay">
             Current Doctor ID: &nbsp;
             {this.state.currentDoctorId} <br />
             Current Patient ID: &nbsp;

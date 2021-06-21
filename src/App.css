@@ -1,5 +1,5 @@
 section {
-  /* margin: 1rem auto; */
+  margin: 1rem auto;
   width: 100%;
   max-width: 40rem;
   text-align: center;
@@ -35,4 +35,13 @@ button:hover,
 button:active {
   background-color: #460897;
   border-color: #460897;
+}
+
+body {
+  background: linear-gradient(to bottom, #def2f1 0, #feffff 400px);
+  height: 100%;
+  text-align: center;
+}
+.nodisplay {
+  display: none;
 }
