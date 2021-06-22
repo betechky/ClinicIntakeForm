@@ -6,6 +6,11 @@ import CompleteList from "./components/CompleteList";
 import axios from "axios";
 import Doctors from "./components/doctors";
 import Patient from "./components/patient";
+// import Intakeforms from "./components/Intakeforms";
+
+// const intakeform = axios.create({
+//   baseURL: `https://localhost:5001/IntakeForms`,
+// });
 
 class App extends Component {
   state = {
@@ -37,59 +42,32 @@ class App extends Component {
     // console.log(e.target.value);
     this.setState({ currentAilment: e.target.value });
   };
-  AddNewIntake = () => {
-    let intakeform = Object.assign({}, this.state.intakeform);
-    console.log("this.state.intakeform", this.state.intakeform);
+
+  AddNewIntake = async () => {
+    let intakeform = Object.assign(
+      {
+        doctors: this.state.currentDoctorId,
+        patient: this.state.patient.id,
+        ailment: this.state.currentAilment,
+      },
+      this.state.intakeform
+    );
+    console.log(intakeform);
+
     axios
       .post("https://localhost:5001/IntakeForms", intakeform)
       .then((response) => {
-        this.setState({ handleCurrentDoctor: intakeform.target.value });
-
-        this.setState({ handleCurrentPatient: intakeform.target.value });
-        this.setState({ currentAilment: intakeform.target.value });
-        // this.props.currentDoctorId(intakeform);
-        // this.props.patient.healthNumber.id(intakeform);
-        // this.props.currentAilment(intakeform);
-        console.log("POST:", response);
+        this.setState({ intakeform: response.data });
+        console.log("POST : ", response);
       });
   };
-  // AddIntakeform = () => {
-  //   let one =
-  //     "https://api.storyblok.com/v1/cdn/stories/health?version=published&token=wANpEQEsMYGOwLxwXQ76Ggtt";
-  //   let two =
-  //     "https://api.storyblok.com/v1/cdn/datasources/?token=wANpEQEsMYGOwLxwXQ76Ggtt";
-  //   let three =
-  //     "https://api.storyblok.com/v1/cdn/stories/vue?version=published&token=wANpEQEsMYGOwLxwXQ76Ggtt";
 
-  //   const requestOne = axios.get(one);
-  //   const requestTwo = axios.get(two);
-  //   const requestThree = axios.get(three);
-
-  //   axios
-  //     .all([requestOne, requestTwo, requestThree])
-  //     .then(
-  //       axios.spread((...responses) => {
-  //         const responseOne = responses[0];
-  //         const responseTwo = responses[1];
-  //         const responesThree = responses[2];
-  //         // use/access the results
-  //       })
-  //     )
-  //     .catch((errors) => {
-  //       // react on errors.
-  //     });
-  // };
-  // async componentDidMount(){
-  //   const[handleCurrentDoctor, handleCurrentPatient ] await Promise.all([
-  //     axios.get('https://localhost:5001/Doctors'.this.props.handleCurrentDoctor)
-  //   ])
-  // }
   render() {
     return (
       <React.Fragment>
         <NavBar>Doctor's office</NavBar>
         <main className="container">
-          <p className="nodisplay">
+          <p>
             Current Doctor ID: &nbsp;
             {this.state.currentDoctorId} <br />
             Current Patient ID: &nbsp;
@@ -98,7 +76,7 @@ class App extends Component {
             {this.state.currentAilment}
             <br />
           </p>
-
+          {/* <Intakeforms></Intakeforms> */}
           <Doctors
             doctors={this.state.doctors}
             onCurrentDoctor={this.handleCurrentDoctor}
@@ -121,7 +99,7 @@ class App extends Component {
             className="btn btn-success m-2"
             disabled={
               this.state.currentDoctorId === undefined ||
-              this.state.patient.healthNumber === undefined ||
+              this.state.patient.id === undefined ||
               this.state.currentAilment === ""
             }
             onClick={this.AddNewIntake}
@@ -139,8 +117,3 @@ class App extends Component {
 }
 
 export default App;
-
-/*
-1. Patient's date of birth input: no data for existing patient!
-2.  AddNewPatient has no Id in patient object
-*/
