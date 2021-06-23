@@ -46,14 +46,14 @@ class App extends Component {
   AddNewIntake = async () => {
     let intakeform = Object.assign(
       {
-        doctors: this.state.currentDoctorId,
-        patient: this.state.patient.id,
+        doctorId: this.state.currentDoctorId,
+        patientId: this.state.patient.id,
         ailment: this.state.currentAilment,
       },
       this.state.intakeform
     );
     console.log(intakeform);
-
+    console.log("this.state.intakeform", this.state.intakeform);
     axios
       .post("https://localhost:5001/IntakeForms", intakeform)
       .then((response) => {
@@ -66,8 +66,8 @@ class App extends Component {
     return (
       <React.Fragment>
         <NavBar>Doctor's office</NavBar>
-        <main className="container">
-          <p>
+        <main className="container addPad">
+          <p className="nodisplay">
             Current Doctor ID: &nbsp;
             {this.state.currentDoctorId} <br />
             Current Patient ID: &nbsp;
@@ -77,14 +77,17 @@ class App extends Component {
             <br />
           </p>
           {/* <Intakeforms></Intakeforms> */}
-          <Doctors
-            doctors={this.state.doctors}
-            onCurrentDoctor={this.handleCurrentDoctor}
-          ></Doctors>
-          <hr />
+
+          <div className="col-12">
+            <Doctors
+              doctors={this.state.doctors}
+              onCurrentDoctor={this.handleCurrentDoctor}
+            ></Doctors>
+          </div>
+
           <Patient onCurrentPatient={this.handleCurrentPatient}></Patient>
-          <hr />
-          <div className="mb-3">
+
+          <div className="col-12 addPad">
             <label htmlFor="exampleFormControlTextarea1" className="form-label">
               Ailment:
             </label>
@@ -95,17 +98,20 @@ class App extends Component {
               onChange={this.handleAiment}
             ></textarea>
           </div>
-          <button
-            className="btn btn-success m-2"
-            disabled={
-              this.state.currentDoctorId === undefined ||
-              this.state.patient.id === undefined ||
-              this.state.currentAilment === ""
-            }
-            onClick={this.AddNewIntake}
-          >
-            Add Intake
-          </button>
+
+          <div className="col-12">
+            <button
+              className="btn btn-success m-2"
+              disabled={
+                this.state.currentDoctorId === undefined ||
+                this.state.patient.id === undefined ||
+                this.state.currentAilment === ""
+              }
+              onClick={this.AddNewIntake}
+            >
+              Add Intake
+            </button>
+          </div>
 
           <div>
             <CompleteList />

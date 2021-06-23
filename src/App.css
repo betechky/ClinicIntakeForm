@@ -37,6 +37,19 @@ button:active {
   border-color: #460897;
 }
 
+.btn-warning:disabled,
+.btn-warning.disabled {
+  color: #fff !important;
+  background-color: #c7c6c3 !important;
+  border-color: #797979 !important;
+}
+
+.btn-success:disabled,
+.btn-success.disabled {
+  color: #fff !important;
+  background-color: #c7c6c3 !important;
+  border-color: #797979 !important;
+}
 body {
   background: linear-gradient(to bottom, #def2f1 0, #feffff 400px);
   height: 100%;
@@ -44,4 +57,7 @@ body {
 }
 .nodisplay {
   display: none;
+}
+.addPad {
+  padding: 50px;
 }
