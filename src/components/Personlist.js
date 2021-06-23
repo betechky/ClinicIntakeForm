@@ -12,7 +12,7 @@ const PersonList = (props) => {
           name={person.name}
           healthNumber={person.healthNumber}
           address={person.address}
-          dateofBirth={person.dateofBirth}
+          // dateofBirth={person.dateofBirth}
           phoneNumber={person.phoneNumber}
         />
       ))}

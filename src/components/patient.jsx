@@ -61,99 +61,101 @@ class Patient extends Component {
   render() {
     return (
       <React.Fragment>
-        Search Id:
-        <input
-          className="form-control m-2"
-          type="text"
-          placeholder="Search by Id and press enter"
-          onKeyPress={(e) => {
-            if (e.key === "Enter") {
-              this.handleId(e.target.value);
+        <div className="container">
+          <h4>Search Patient</h4>
+          <input
+            className="form-control m-2"
+            type="text"
+            placeholder="Search by Id and press enter"
+            onKeyPress={(e) => {
+              if (e.key === "Enter") {
+                this.handleId(e.target.value);
+              }
+            }}
+            // onBlur={(e) => this.handleId(e.target.value)}
+          ></input>
+          <input
+            className="form-control m-2"
+            type="text"
+            placeholder="Health Number"
+            value={this.state.patient.healthNumber || ""}
+            onChange={(e) =>
+              this.setState((prevState) => {
+                let patient = Object.assign({}, prevState.patient);
+                patient.healthNumber = e.target.value;
+                return { patient };
+              })
             }
-          }}
-          // onBlur={(e) => this.handleId(e.target.value)}
-        ></input>
-        <input
-          className="form-control m-2"
-          type="text"
-          placeholder="Health Number"
-          value={this.state.patient.healthNumber || ""}
-          onChange={(e) =>
-            this.setState((prevState) => {
-              let patient = Object.assign({}, prevState.patient);
-              patient.healthNumber = e.target.value;
-              return { patient };
-            })
-          }
-        ></input>
-        <input
-          className="form-control m-2"
-          type="text"
-          placeholder="Name"
-          value={this.state.patient.name || ""}
-          onChange={(e) =>
-            this.setState((prevState) => {
-              let patient = Object.assign({}, prevState.patient);
-              patient.name = e.target.value;
-              return { patient };
-            })
-          }
-        ></input>
-        <input
-          className="form-control m-2"
-          type="date"
-          placeholder="Date of Birth"
-          value={this.state.patient.dateofBirth || ""}
-          onChange={(e) =>
-            this.setState((prevState) => {
-              let patient = Object.assign({}, prevState.patient);
-              patient.dateofBirth = e.target.value;
-              return { patient };
-            })
-          }
-        ></input>
-        <input
-          className="form-control m-2"
-          type="text"
-          placeholder="Phone Number"
-          value={this.state.patient.phoneNumber || ""}
-          onChange={(e) =>
-            this.setState((prevState) => {
-              let patient = Object.assign({}, prevState.patient);
-              patient.phoneNumber = e.target.value;
-              return { patient };
-            })
-          }
-        ></input>
-        <input
-          className="form-control m-2"
-          type="text"
-          placeholder="Address"
-          value={this.state.patient.address || ""}
-          onChange={(e) =>
-            this.setState((prevState) => {
-              let patient = Object.assign({}, prevState.patient);
-              patient.address = e.target.value;
-              return { patient };
-            })
-          }
-        ></input>
-        <button
-          type="button"
-          className="btn btn-success btn-small  m-2"
-          disabled={this.state.isCreate}
-          onClick={this.AddNewPatient}
-        >
-          Add New Patient
-        </button>
-        <button
-          type="button"
-          class="btn btn-warning btn-small m-2"
-          disabled={!this.state.isCreate}
-          onClick={this.UpdatePatient}
-        >
-          Update Patient
-        </button>
+          ></input>
+          <input
+            className="form-control m-2"
+            type="text"
+            placeholder="Name"
+            value={this.state.patient.name || ""}
+            onChange={(e) =>
+              this.setState((prevState) => {
+                let patient = Object.assign({}, prevState.patient);
+                patient.name = e.target.value;
+                return { patient };
+              })
+            }
+          ></input>
+          <input
+            className="form-control m-2"
+            type="date"
+            placeholder="Date of Birth"
+            value={this.state.patient.dateofBirth || ""}
+            onChange={(e) =>
+              this.setState((prevState) => {
+                let patient = Object.assign({}, prevState.patient);
+                patient.dateofBirth = e.target.value;
+                return { patient };
+              })
+            }
+          ></input>
+          <input
+            className="form-control m-2"
+            type="text"
+            placeholder="Phone Number"
+            value={this.state.patient.phoneNumber || ""}
+            onChange={(e) =>
+              this.setState((prevState) => {
+                let patient = Object.assign({}, prevState.patient);
+                patient.phoneNumber = e.target.value;
+                return { patient };
+              })
+            }
+          ></input>
+          <input
+            className="form-control m-2"
+            type="text"
+            placeholder="Address"
+            value={this.state.patient.address || ""}
+            onChange={(e) =>
+              this.setState((prevState) => {
+                let patient = Object.assign({}, prevState.patient);
+                patient.address = e.target.value;
+                return { patient };
+              })
+            }
+          ></input>
+          <button
+            type="button"
+            className="btn btn-success btn-small  m-2"
+            disabled={this.state.isCreate}
+            onClick={this.AddNewPatient}
+          >
+            Add New Patient
+          </button>
+          <button
+            type="button"
+            class="btn btn-warning btn-small m-2"
+            disabled={!this.state.isCreate}
+            onClick={this.UpdatePatient}
+          >
+            Update Patient
+          </button>
+        </div>
       </React.Fragment>
     );
   }

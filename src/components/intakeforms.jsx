@@ -10,8 +10,8 @@ function Intakeforms() {
 
   const fetchData = () => {
     const doctorIntake = "https://localhost:5001/Doctors/1";
-    const patientIntake = "https://localhost:5001/Patients/1";
-    const ailmentIntake = "https://localhost:5001/IntakeForms/2";
+    const patientIntake = "https://localhost:5001/Patients/4";
+    const ailmentIntake = "https://localhost:5001/IntakeForms/6";
 
     const getDoctor = axios.get(doctorIntake);
     const getPatient = axios.get(patientIntake);

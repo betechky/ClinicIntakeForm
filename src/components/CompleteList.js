@@ -23,7 +23,7 @@ function CompleteList() {
           name: personData.name,
           healthNumber: personData.healthNumber,
           address: personData.address,
-          dateofBirth: personData.dateofBirth,
+          // dateofBirth: personData.dateofBirth,
           phoneNumber: personData.phoneNumber,
         };
       });

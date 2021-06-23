@@ -10,7 +10,7 @@ const Person = (props) => {
         <span>{props.id}</span>
       </h2>
       <h3>{props.healthNumber}</h3>
-      <p>{props.dateofBirth}</p>
+      {/* <p>{props.dateofBirth}</p> */}
       <p>{props.address}</p>
       <p>{props.phoneNumber}</p>
     </li>

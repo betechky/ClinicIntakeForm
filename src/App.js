@@ -76,20 +76,22 @@ class App extends Component {
             {this.state.currentAilment}
             <br />
           </p>
+
           {/* <Intakeforms></Intakeforms> */}
 
-          <div className="col-12">
+          <div className="col-12 addPad">
+            <h4>Choose Doctor</h4>
             <Doctors
               doctors={this.state.doctors}
               onCurrentDoctor={this.handleCurrentDoctor}
             ></Doctors>
           </div>
-
-          <Patient onCurrentPatient={this.handleCurrentPatient}></Patient>
-
+          <div className="col-12 addPad">
+            <Patient onCurrentPatient={this.handleCurrentPatient}></Patient>
+          </div>
           <div className="col-12 addPad">
             <label htmlFor="exampleFormControlTextarea1" className="form-label">
-              Ailment:
+              Diagnosis:
             </label>
             <textarea
               className="form-control"
