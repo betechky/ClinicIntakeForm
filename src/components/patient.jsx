@@ -141,7 +141,7 @@ class Patient extends Component {
           ></input>
           <button
             type="button"
-            className="btn btn-success btn-small  m-2"
+            className="btn btn-success btn-sm  m-2"
             disabled={this.state.isCreate}
             onClick={this.AddNewPatient}
           >
@@ -149,7 +149,7 @@ class Patient extends Component {
           </button>
           <button
             type="button"
-            class="btn btn-warning btn-small m-2"
+            className="btn btn-warning btn-sm m-2"
             disabled={!this.state.isCreate}
             onClick={this.UpdatePatient}
           >

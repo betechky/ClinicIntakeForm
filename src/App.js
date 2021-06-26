@@ -103,7 +103,7 @@ class App extends Component {
 
           <div className="col-12">
             <button
-              className="btn btn-success m-2"
+              className="btn btn-success btn-lg btn-block m-2"
               disabled={
                 this.state.currentDoctorId === undefined ||
                 this.state.patient.id === undefined ||

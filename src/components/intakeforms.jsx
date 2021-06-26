@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import App from "../App";
+// import App from "../App";
 
 function Intakeforms() {
   const [doctorId, setDoctorID] = useState([]);
   const [patientId, setPatientID] = useState([]);
   const [ailment, setAilment] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
 
   const fetchData = () => {
     const doctorIntake = "https://localhost:5001/Doctors/1";
@@ -29,14 +28,14 @@ function Intakeforms() {
     );
   };
 
-  const handleDrId = (id) => {
-    axios.get("https://localhost:5001/Doctors/" + id).then((response) => {
-      let doctor = Object.assign({}, response.data);
+  // const handleDrId = (id) => {
+  //   axios.get("https://localhost:5001/Doctors/" + id).then((response) => {
+  //     let doctor = Object.assign({}, response.data);
 
-      this.setState({ doctor });
-      this.props.onCurrentPatient(doctor);
-    });
-  };
+  //     this.setState({ doctor });
+  //     this.props.onCurrentPatient(doctor);
+  //   });
+  // };
 
   useEffect(() => {
     fetchData();

@@ -35,13 +35,6 @@ function CompleteList() {
     setIsLoading(false);
   }, []);
 
-  // useEffect(() => {
-  //   fetchPersonHandler();
-  // }, [fetchPersonHandler]);
-
-  // function addMovieHandler(movie) {
-  //   console.log(movie);
-  // }
   let content = <p>See all Patients Click the button Above.</p>;
 
   if (persons.length > 0) {
